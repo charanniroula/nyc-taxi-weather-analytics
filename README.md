@@ -16,7 +16,7 @@ Messy real-world data requires careful engineering before it can reveal clean tr
 
 1. **Engineering Travel Efficiency:** I created an `avg_min_per_mile` metric. First, I used `TIMESTAMP_DIFF` to find the exact duration of each trip in seconds, converted it to minutes, and then divided it by the `trip_distance`. This calculates true traffic velocity regardless of journey length.
 2. **Data Cleaning & Outlier Removal:** To prevent skewed insights, I wrote conditional filtering clauses to eliminate incorrect data and extreme outliers. I strictly isolated trips that had a distance between 1 and 10 miles, and durations between 2 and 60 minutes because anything more than 10 miles would be outside Central Park. I didn't want durations under 1 minute and I also didn't want durations that are unusually long.
-3. **Weather Categorization Modeling:** Because raw decimal numbers for precipitation doesn't look clean on a chart, I engineered a `CASE WHEN` block to categorize daily precipitation into four explicit operational states for Tableau: Clear, Trace/Dry (capturing low-moisture days), Moderate Rain, and Heavy Rain.
+3. **Weather Categorization Modeling:** Because raw decimal numbers for precipitation doesn't look clean on a chart, I engineered a `CASE WHEN` block to categorize daily precipitation into four explicit operational states for Tableau: Clear, Snow/Sleet, Light/Moderate Rain, and Heavy Rain. I included any temperature under 32.0 degrees as Snow/Sleet day.
 
 * *Code Location:* `sql/taxi_weather_analysis.sql`
 
@@ -28,7 +28,7 @@ Messy real-world data requires careful engineering before it can reveal clean tr
 # Key Insights & Visual Design (Tableau)
 I built the final dashboard to clearly contrast trip volume and travel efficiency by month and weather state. The analysis revealed three major business insights:
 
-* **Weather Resilience:** The data shows surprising resilience to rainfall. Clear, Light/Mod Rain, and Heavy Rain all averaged roughly 6.12 minutes per mile, proving precipitation alone doesn't break city transit.
+* **Weather Resilience:** The data shows surprising resilience to rainfall. Clear, Snow/Sleet, Light/Mod Rain, and Heavy Rain all averaged roughly 6.12 minutes per mile, proving precipitation alone doesn't break city transit.
 * **The Snow Contradiction:** Traffic velocity actually sped up during Snow/Sleet events (5.6 mins/mil). This counterintuitive trend suggests that most commuters stayed home, leaving the streets entirely clear for the few taxis out working.
 * **Events > Weather (The Real Congestion Driver):** Major scheduled city events cause worse gridlock than any storm. A massive traffic slowdown in September (**6.8 mins/mile**) directly correlates with the UN General Assembly, proving a busy calendar is a bigger headache for drivers than a bad forecast.
 
