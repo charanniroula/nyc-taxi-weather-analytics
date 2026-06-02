@@ -32,4 +32,5 @@ I built the final dashboard to clearly contrast trip volume and travel efficienc
 * **The Snow Contradiction:** Traffic velocity actually sped up during Snow/Sleet events (5.6 mins/mil). This counterintuitive trend suggests that most commuters stayed home, leaving the streets entirely clear for the few taxis out working.
 * **Events > Weather (The Real Congestion Driver):** Major scheduled city events cause worse gridlock than any storm. A massive traffic slowdown in September (**6.8 mins/mile**) directly correlates with the UN General Assembly, proving a busy calendar is a bigger headache for drivers than a bad forecast.
 
-[Click Here to View the Interactive Tableau Dashboard][([PASTE_YOUR_NYC_TABLEAU_LINK_HERE](https://public.tableau.com/app/profile/charan.niroula/viz/FinalProject_17781947359030/Dashboard1#1))]
+[Click Here to View the Interactive Tableau Dashboard]
+(https://public.tableau.com/app/profile/charan.niroula/viz/FinalProject_17781947359030/Dashboard1#1)
